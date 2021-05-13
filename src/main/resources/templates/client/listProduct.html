@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title>Color Admin | Managed Tables - Buttons</title>
+<meta
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+<!-- ================== BEGIN BASE CSS STYLE ================== -->
+<link
+	th:href="@{http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700}"
+	rel="stylesheet" />
+<link th:href="@{/home/assets/plugins/jquery-ui/jquery-ui.min.css}"
+	rel="stylesheet" />
+<link
+	th:href="@{/home/assets/plugins/bootstrap/4.0.0/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	th:href="@{/home/assets/plugins/font-awesome/5.0/css/fontawesome-all.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/home/assets/plugins/animate/animate.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/home/assets/css/transparent/style.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/home/assets/css/transparent/style-responsive.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/home/assets/css/transparent/theme/default.css}"
+	rel="stylesheet" id="theme" />
+<!-- ================== END BASE CSS STYLE ================== -->
+
+<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+<link
+	th:href="@{/home/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	th:href="@{/home/assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	th:href="@{/home/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css}"
+	rel="stylesheet" />
+<!-- ================== END PAGE LEVEL STYLE ================== -->
+
+<!-- ================== BEGIN BASE JS ================== -->
+<script th:src="@{/home/assets/plugins/pace/pace.min.js}"></script>
+<!-- ================== END BASE JS ================== -->
+</head>
+<body>
+	<!-- begin page-cover -->
+	<div class="page-cover"></div>
+	<!-- end page-cover -->
+
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show">
+		<span class="spinner"></span>
+	</div>
+	<!-- end #page-loader -->
+
+	<!-- begin #page-container -->
+	<div id="page-container"
+		class="fade in page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar-default">
+			<!-- begin navbar-header -->
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand"><span
+					class="navbar-logo"></span> <b>QRCode</b> Admin</a>
+				<button type="button" class="navbar-toggle"
+					data-click="sidebar-toggled">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- end navbar-header -->
+
+			<!-- begin header-nav -->
+			<ul class="navbar-nav navbar-right">
+				<li>
+					<form class="navbar-form">
+						<div class="form-group">
+							<input type="text" class="form-control"
+								placeholder="Enter keyword" />
+							<button type="submit" class="btn btn-search">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</form>
+				</li>
+				<li class="dropdown"><a href="javascript:;"
+					data-toggle="dropdown" class="dropdown-toggle f-s-14"> <i
+						class="fa fa-bell"></i> <span class="label">5</span>
+				</a>
+					<ul class="dropdown-menu media-list dropdown-menu-right">
+						<li class="dropdown-header">NOTIFICATIONS (5)</li>
+
+						<li class="dropdown-footer text-center"><a
+							href="javascript:;">View more</a></li>
+					</ul></li>
+				<li class="dropdown navbar-user"><a href="javascript:;"
+					class="dropdown-toggle" data-toggle="dropdown"> <img
+						th:src="@{/assets/img/user/dhien.jpg}" alt="" /> <span
+						class="d-none d-md-inline">Welcome, Admin!</span> <b class="caret"></b>
+				</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="javascript:;" class="dropdown-item">Edit Profile</a> <a
+							href="javascript:;" class="dropdown-item"><span
+							class="badge badge-danger pull-right">2</span> Inbox</a> <a
+							href="javascript:;" class="dropdown-item">Calendar</a> <a
+							href="javascript:;" class="dropdown-item">Setting</a>
+						<div class="dropdown-divider"></div>
+						<a href="javascript:;" class="dropdown-item">Log Out</a>
+					</div></li>
+			</ul>
+			<!-- end header navigation right -->
+		</div>
+		<!-- end #header -->
+
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile"><a href="javascript:;"
+						data-toggle="nav-profile">
+							<div class="image">
+								<img th:src="@{/assets/img/user/dhien.jpg}" alt="" />
+							</div>
+							<div class="info">
+								<b class="caret pull-right"></b> <a style="color: #ffffff"
+									href="#" sec:authentication="name"></a> <small>Welcome
+									!!</small> <br>
+
+							</div>
+					</a></li>
+					<li>
+						<ul class="nav nav-profile">
+							<li><a href="javascript:;"><i class="fa fa-cog"></i>
+									Settings</a></li>
+							<li><a href="javascript:;"><i class="fa fa-pencil-alt"></i>
+									Send Feedback</a></li>
+							<li><a href="javascript:;"><i
+									class="fa fa-question-circle"></i> Helps</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav">
+					<li class="nav-header">Navigation</li>
+					<li class="has-sub"><a href="email_inbox.html"> <i
+							class="fa fa-th-large"></i> <span>Trang chủ</span>
+					</a></li>
+					<li class="has-sub active"><a th:href="@{/home}"> <i
+							class="fa fa-gem"></i> <span>Sản phẩm </span>
+
+					</a>
+					<li class="has-sub"><a th:href="@{/logout}" > <i
+							class="fa fa-key"></i> <span>Logout</span>
+					</a></li>
+					<!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn"
+						data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+					<!-- end sidebar minify button -->
+				</ul>
+				<!-- end sidebar nav -->
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<!-- end sidebar scrollbar -->
+	</div>
+	<div class="sidebar-bg"></div>
+	<!-- end #sidebar -->
+
+	<!-- begin #content -->
+	<div id="content" class="content">
+		<!-- begin breadcrumb -->
+		<ol class="breadcrumb pull-right">
+			<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+			<li class="breadcrumb-item"><a href="javascript:;">Tables</a></li>
+			<li class="breadcrumb-item"><a href="javascript:;">Managed
+					Tables</a></li>
+			<li class="breadcrumb-item active">Buttons</li>
+		</ol>
+		<!-- end breadcrumb -->
+		<!-- begin page-header -->
+		<h1 class="page-header">
+			Danh sách<small>Danh sách sản phẩm</small>
+		</h1>
+		<div th:if="${success}" class="alert alert-success no-border">
+			<ul>
+				<button type="button" class="close" data-dismiss="alert">
+					<span>×</span><span class="sr-only">x</span>
+				</button>
+
+				<li><span class="text-semibold" th:text="${success}"></span></li>
+
+			</ul>
+		</div>
+		<div th:if="${messages}" class="alert alert-danger no-border">
+			<ul>
+				<button type="button" class="close" data-dismiss="alert">
+					<span>×</span><span class="sr-only">x</span>
+				</button>
+
+				<li><span class="text-semibold" th:text="${messages}"></span></li>
+
+			</ul>
+		</div>
+		<button type="button" class="btn btn-default m-r-5 m-b-5">
+			<a style="color: #ffffff" th:href="@{/home/create}">Thêm sản phẩm</a>
+		</button>
+
+		<!-- end page-header -->
+
+		<!-- begin row -->
+		<div class="row">
+			<!-- begin col-2 -->
+
+			<!-- end col-2 -->
+			<!-- begin col-10 -->
+			<div class="col-lg-10" style="width: 1000px">
+				<!-- begin panel -->
+				<div class="panel panel-inverse">
+					<!-- begin panel-heading -->
+					<div class="panel-heading">
+						<div class="panel-heading-btn">
+							<a href="javascript:;"
+								class="btn btn-xs btn-icon btn-circle btn-default"
+								data-click="panel-expand"><i class="fa fa-expand"></i></a> <a
+								href="javascript:;"
+								class="btn btn-xs btn-icon btn-circle btn-success"
+								data-click="panel-reload"><i class="fa fa-redo"></i></a> <a
+								href="javascript:;"
+								class="btn btn-xs btn-icon btn-circle btn-warning"
+								data-click="panel-collapse"><i class="fa fa-minus"></i></a> <a
+								href="javascript:;"
+								class="btn btn-xs btn-icon btn-circle btn-danger"
+								data-click="panel-remove"><i class="fa fa-times"></i></a>
+						</div>
+						<h4 class="panel-title">Sản phẩm</h4>
+					</div>
+					<!-- end panel-heading -->
+					<!-- begin alert -->
+					<div class="alert alert-warning fade show">
+						<button type="button" class="close" data-dismiss="alert">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						Thêm sản phẩm ở đây, chúng tôi sẽ tạo id và mã qr tự động cho sản
+						phẩm của bạn. Bạn có thể in dữ liệu bằng những công cụ hỗ trợ ở
+						đây như: Exel, PDF, Print...
+					</div>
+					<!-- end alert -->
+					<!-- begin panel-body -->
+					<div class="panel-body">
+						<th:block th:if="${#lists.isEmpty(sanpham)}">
+							<h3>No employee</h3>
+						</th:block>
+						<th:block th:unless="${#lists.isEmpty(sanpham)}">
+							<table id="data-table-buttons"
+								class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th width="1%"></th>
+										<th width="1%" data-orderable="false">Ảnh</th>
+										<th class="text-nowrap">ID</th>
+										<th class="text-nowrap">Tên sản phẩm</th>
+										<th class="text-nowrap">Giá bán</th>
+										<th class="text-nowrap">Thương hiệu</th>
+										<th class="text-nowrap">Mô tả</th>
+										<th class="text-nowrap">Mã QRCode</th>
+										<th class="text-nowrap">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="product,iterStat: ${sanpham}" class="odd gradeX">
+										<td width="1%" class="f-s-600" th:text="${iterStat.count}"></td>
+										<td width="1%" class="with-img"><img
+											th:src="@{'/images/'+${product.getHinhanh1()}}" width="30px"
+											height="30px"></td>
+											<td th:text="${product.getId()}"></td>
+										<td th:text="${product.getTensanpham()}"></td>
+										<td th:text="${product.getGiaban()}"></td>
+										<td th:text="${product.getThuonghieu()}"></td>
+											<td th:text="${product.getMota()}"></td>
+										<td><center><img th:src="@{'/home/'+${product.id}}" width="50px"
+											height="50px"></center></td>
+										<td><center><a style="color: #ffffff" th:href="@{'/home/'+ ${product.id} + '/edit'}"><i class="far fa-edit"></i></a> <a
+											th:href="@{'/home/'+ ${product.id} + '/delete'}"
+											onclick="return confirm('Bạn muốn xóa sản phẩm này?');" style="color: #ffffff"><i class="far fa-trash-alt"></i></a></center></td>
+
+									</tr>
+								</tbody>
+							</table>
+							</th:block>
+					</div>
+					<!-- end panel-body -->
+				</div>
+				<!-- end panel -->
+			</div>
+			<!-- end col-10 -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end #content -->
+
+	<!-- begin theme-panel -->
+
+	<!-- begin scroll to top btn -->
+	<a href="javascript:;"
+		class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade"
+		data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+	<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script th:src="@{/home/assets/plugins/jquery/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{/home/assets/plugins/jquery-ui/jquery-ui.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js}"></script>
+	<!--[if lt IE 9]>
+		<script src="../assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="../assets/crossbrowserjs/respond.min.js"></script>
+		<script src="../assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script
+		th:src="@{/home/assets/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+	<script th:src="@{/home/assets/plugins/js-cookie/js.cookie.js}"></script>
+	<script th:src="@{/home/assets/js/theme/transparent.min.js}"></script>
+	<script th:src="@{/home/assets/js/apps.min.js}"></script>
+	<!-- ================== END BASE JS ================== -->
+
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script
+		th:src="@{/home/assets/plugins/DataTables/media/js/jquery.dataTables.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js}"></script>
+	<script
+		th:src="@{/home/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js}"></script>
+	<script
+		th:src="@{/home/assets/js/demo/table-manage-buttons.demo.min.js}"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+
+	<script>
+		$(document).ready(function() {
+			App.init();
+			TableManageButtons.init();
+		});
+	</script>
+</body>
+</html>

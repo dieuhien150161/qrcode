@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create new Film</title>
+</head>
+<body>
+	<h1>Create new product</h1>
+	<form method="post" th:object="${phim}" th:action="@{/films/create}" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" th:field="*{tenPhim}"></td>
+			</tr>
+			<tr>
+				<td>Times</td>
+				<td><input type="text" th:field="*{thoiLuong}"></td>
+			</tr>
+			<tr>
+				<td>Mô tả ngắn</td>
+				<td><input type="text" th:field="*{moTaNgan}"></td>
+			</tr>
+			<tr>
+				<td>Dạo diễn</td>
+				<td><input type="text" th:field="*{daoDien}"></td>
+			</tr>
+			<tr>
+				<td>Diễn viên</td>
+				<td><input type="text" th:field="*{dienVien}"></td>
+			</tr>
+			<tr>
+				<td>Mô tả ngắn</td>
+				<td><input type="text" th:field="*{moTaNgan}"></td>
+			</tr>
+			<tr>
+				<td>Image 1</td>
+				<td><input type="file" th:field="*{hinhAnh1}"></td>
+			</tr>
+			<tr>
+				<td>Image 2</td>
+				<td><input type="file" th:field="*{hinhAnh2}"></td>
+			</tr>
+			<tr>
+				<td>Image 3</td>
+				<td><input type="file" th:field="*{hinhAnh3}"></td>
+			</tr>
+			<tr>
+				<td>Image 4</td>
+				<td><input type="file" th:field="*{hinhAnh4}"></td>
+			</tr>
+			<tr>
+				<td>Video</td>
+				<td><input type="file" th:field="*{video}"></td>
+			</tr>
+			<tr>
+				<td>Thể loại</td>
+				<td><input type="text" th:field="*{theLoai}"></td>
+			</tr>
+			<tr>
+				<td>Ngày công chiếu</td>
+				<td><input type="date" th:field="*{ngayCongChieu}"></td>
+			</tr>
+			<tr>
+				<td>Giới hạn tuổi</td>
+				<td><input type="number" th:field="*{gioiHanTuoi}"></td>
+			</tr>
+			<tr>
+				<td>Định dạng phim</td>
+				<td><input type="text" th:field="*{dinhDangPhim}"></td>
+			</tr>
+			<tr>
+				<td>Trạng thái</td>
+				<td><input type="number" th:field="*{trangThai}"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Create"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

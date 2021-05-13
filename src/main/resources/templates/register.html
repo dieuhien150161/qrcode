@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>QRCode | Register Page</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="../register/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+	<link href="../register/assets/plugins/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../register/assets/plugins/font-awesome/5.0/css/fontawesome-all.min.css" rel="stylesheet" />
+	<link href="../register/assets/plugins/animate/animate.min.css" rel="stylesheet" />
+	<link href="../register/assets/css/transparent/style.min.css" rel="stylesheet" />
+	<link href="../register/assets/css/transparent/style-responsive.min.css" rel="stylesheet" />
+	<link href="../register/assets/css/transparent/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="../register/assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+</head>
+<body class="pace-top bg-black-darker">
+	
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade">
+	    <!-- begin register -->
+        <div class="register register-with-news-feed">
+            <!-- begin news-feed -->
+            <div class="news-feed">
+                <div class="news-image" style="background-image: url(../register/assets/img/login-bg-12.jpg)"></div>
+                <div class="news-caption">
+                    <h4 class="caption-title"><b>QRCode</b> Admin </h4>
+                    <p>
+                        Dịch vụ đăng ký mã vạch tại QrCode giúp quản lý các sản phẩm của doanh nghiệp, công ty. Giúp người dùng có thể phân biệt được hàng thật, hàng giả. Mang lại nhiều lợi nhuận cho công ty.
+                    </p>
+                </div>
+            </div>
+            <!-- end news-feed -->
+            <!-- begin right-content -->
+            <div class="right-content">
+                <!-- begin register-header -->
+                <h1 class="register-header">
+                    Đăng ký doanh nghiệp
+                    <small>Tạo tài khoản của bạn ở đây để quản lý sản phẩm của doanh nghiệp mình.</small>
+                </h1>
+                <!-- end register-header -->
+                <!-- begin register-content -->
+                <div class="register-content">
+                    <form id="form-submit" th:action="@{/register/create}" method="POST" class="margin-bottom-0"  th:object="${user}" enctype="multipart/form-data">
+                        <span th:if="${error != null}" th:text="${error}" class="text-danger"></span>
+                        
+                        <label class="control-label">Ảnh logo <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                               <input th:field="*{anhlogo}" name="anhlogo" type="file" class="form-control"  accept="image/png, image/jpeg"/>
+                            </div>
+                        </div>
+                        <label class="control-label">Tên đăng nhập <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{email}" type="email" name="email" class="form-control" placeholder="Tên đăng nhập (email)" required />
+                            </div>
+                        </div>
+                         <label class="control-label">Password <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{password}" type="password" name="password" class="form-control" placeholder="Mật khẩu" required />
+                            </div>
+                        </div>
+                        <label class="control-label">Tên doanh nghiệp <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{tendoanhnghiep}" type="text" name="tendoanhnghiep" class="form-control" placeholder="Tên doanh nghiệp" required />
+                            </div>
+                        </div>
+                        <label class="control-label">Ngành kinh doanh <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{nganhkinhdoanh}" type="text" name="nganhkinhdoanh" class="form-control" placeholder="Ngành kinh doanh" required />
+                            </div>
+                        </div>
+                        <label class="control-label">Địa chỉ<span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{diachi}" name="diachi" type="text" class="form-control" placeholder="Địa chỉ" required />
+                            </div>
+                        </div>
+                        <label class="control-label">Số điện thoại <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{sodienthoai}" name="sodienthoai"  type="text" class="form-control" placeholder="Số điện thoại " required />
+                            </div>
+                        </div>
+                        <label class="control-label">Tên người đại diện <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{daidiendoanhnghiep}" name="daidiendoanhnghiep" type="text" class="form-control" placeholder="Tên người đại diện" required />
+                            </div>
+                        </div>
+                        <label class="control-label">Chức vụ người đại diện <span class="text-danger">*</span></label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input th:field="*{chucvunguoidaidien}" name="chucvunguoidaidien" type="text" class="form-control" placeholder="Chức vụ người đại diện" required />
+                            </div>
+                        </div>
+                        <div class="checkbox checkbox-css m-b-30">
+                        	<div class="checkbox checkbox-css m-b-30">
+								<input type="checkbox" id="agreement_checkbox" value="">
+								<label for="agreement_checkbox">
+									Bằng cách nhấp vào Đăng ký, bạn đồng ý với <a href="javascript:;">Điều khoản </a> của chúng tôi và bạn đã đọc  <a href="javascript:;">Chính sách Dữ liệu </a>của chúng tôi, bao gồm cả việc Sử dụng <a href="javascript:;">Cookie Use</a>.
+								</label>
+							</div>
+                        </div>
+                        <div class="register-buttons">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">Đăng ký</button>
+                        </div>
+                        <div class="m-t-20 m-b-40 p-b-40">
+                           Bạn đã có tài khoản? Nhấn vào <a th:href="@{/login1}" >đây</a> để đăng nhập.
+                        </div>
+                        <hr />
+                        <p class="text-center">
+                            &copy; Design by Dieu Hien 2021
+                        </p>
+                    </form>
+                </div>
+                <!-- end register-content -->
+            </div>
+            <!-- end right-content -->
+        </div>
+        <!-- end register -->
+        
+        <!-- begin theme-panel -->
+        <div class="theme-panel">
+            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+            <div class="theme-panel-content">
+                <h5 class="m-t-0">Color Theme</h5>
+                <ul class="theme-list clearfix">
+                    <li><a href="javascript:;" class="bg-green" data-theme="green" data-theme-file="../assets/css/transparent/theme/green.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Green">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-theme-file="../assets/css/transparent/theme/red.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
+                    <li class="active"><a href="javascript:;" class="bg-blue" data-theme="default" data-theme-file="../assets/css/transparent/theme/default.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-theme-file="../assets/css/transparent/theme/purple.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-theme-file="../assets/css/transparent/theme/orange.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+                    <li><a href="javascript:;" class="bg-black" data-theme="black" data-theme-file="../assets/css/transparent/theme/black.css" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Black">&nbsp;</a></li>
+                </ul>
+                <div class="divider"></div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label">Header</div>
+                    <div class="col-md-7">
+                        <select name="header-fixed" class="form-control form-control-sm">
+                            <option value="1">fixed</option>
+                            <option value="2">default</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label double-line">Sidebar Styling</div>
+                    <div class="col-md-7">
+                        <select name="sidebar-styling" class="form-control form-control-sm">
+                            <option value="1">default</option>
+                            <option value="2">grid</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label">Sidebar</div>
+                    <div class="col-md-7">
+                        <select name="sidebar-fixed" class="form-control form-control-sm">
+                            <option value="1">fixed</option>
+                            <option value="2">default</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-5 control-label double-line">Sidebar Gradient</div>
+                    <div class="col-md-7">
+                        <select name="content-gradient" class="form-control form-control-sm">
+                            <option value="1">disabled</option>
+                            <option value="2">enabled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-md-12">
+                        <a href="javascript:;" class="btn btn-inverse btn-block btn-sm" data-click="reset-local-storage">Reset Local Storage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end theme-panel -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="../register/assets/plugins/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../register/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../register/assets/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="../assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="../assets/crossbrowserjs/respond.min.js"></script>
+		<script src="../assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="../register/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="../register/assets/plugins/js-cookie/js.cookie.js"></script>
+	<script src="../register/assets/js/theme/transparent.min.js"></script>
+	<script src="../register/assets/js/apps.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+
+	<script>
+		$(document).ready(function() {
+			App.init();
+		});
+	</script>
+</body>
+</html>

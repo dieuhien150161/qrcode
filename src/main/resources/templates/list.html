@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<style type="text/css">
+body {
+	font-family: sans-serif;
+	font-size: 25px;
+	height: 100%;
+}
+
+.container {
+	width: 1080px;
+	margin: 0 auto;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+a {
+	padding: 20px;
+	background: green; text-decoration : none;
+	color: red;
+	text-decoration: none;
+	margin-bottom: 200px;
+	border-radius:20px; 
+}
+
+a:hover {
+	font-size: 50px;
+	color: blue;
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Tasks</h1>
+		<a th:href="@{/admin/phim/create}">ADD</a>
+		<table>
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Image1</th>
+					<th>Image2</th>
+					<th>Image3</th>
+					<th>Image4</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product,iterStat: ${products}"
+					style="table-layout: fixed; text-align: center;">
+					<td th:text="${iterStat.count}"></td>
+					<td th:text="${product.getTenPhim()}"></td>
+					<td th:text="${product.getMoTaNgan()}"></td>
+					<td><img th:src="@{${product.getHinhAnh1()}}" width="50"
+						height="50"></td>
+					<td><img th:src="@{${product.getHinhAnh2()}}" width="50"
+						height="50"></td>
+					<td><img th:src="@{${product.getHinhAnh3()}}" width="50"
+						height="50"></td>
+					<td><img th:src="@{${product.getHinhAnh4()}}" width="50"
+						height="50"></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+	<div class="container-fluid">
+		<nav th:replace="layout :: header"></nav>
+		<div class="row">
+			<div th:replace="layout :: left-sidebar" class="col-md-2 p-x-0 p-y-3"></div>
+			<div class="container main-content list " >
+
+				<div th:if="${success}"
+					class="row alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<span th:text="${success}"></span>
+				</div>
+				<div class="row">
+					<a th:href="@{/phim/create}" class="btn btn-success pull-left">
+						<span class="glyphicon glyphicon-plus"></span> Add new phim
+					</a>
+					<form class="form-inline pull-right" action="#"
+						th:action="@{/phim/search}" method="GET">
+						<div class="form-group">
+							<input type="text" class="form-control" name="s"
+								placeholder="Type employee name..." />
+						</div>
+						<button type="submit" class="btn btn-primary">Search</button>
+					</form>
+				</div>
+				<th:block th:if="${#lists.isEmpty(phims)}">
+					<h3>No Film</h3>
+				</th:block>
+
+				<th:block th:unless="${#lists.isEmpty(phims)}">
+					<div class="row">
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Name</th>
+									<th>Time</th>
+									<th>Des</th>
+									<th>D.dien</th>
+									<th>Edit</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="contact,iterStat : ${phims}">
+									<td th:text="${iterStat.count}"></td>
+									<td th:text="${contact.tenPhim}"></td>
+									<td th:text="${contact.thoiLuong}"></td>
+									<td th:text="${contact.moTaNgan}"></td>
+									<td th:text="${contact.daoDien}"></td>
+									<td><a th:href="@{/phim/{id}/edit(id=${contact.id})}"><span
+											class="glyphicon glyphicon-pencil"></span></a></td>
+									<td><a
+										th:href="@{/phim/{id}/delete(id=${contact.id})}"><span
+											class="glyphicon glyphicon-trash"></span></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</th:block>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
